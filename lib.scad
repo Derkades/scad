@@ -1,13 +1,17 @@
 module bettersphere(r) {
-   sphere(r, $fa=1, $fs=0.5);
+   sphere(r, $fs=0.5);
+}
+
+module bettercylinder(h, r) {
+   cylinder(h=h, r=r, $fs=0.5);
 }
 
 module roundedcube(dims, rounding, only_sides=false) {
     if (only_sides) {
         translate([rounding, rounding, 0]) {
             minkowski() {
-                cylinder(r=rounding);
-                cube(dims - [2*rounding, 2*rounding, 0]);
+                bettercylinder(1, rounding);
+                cube(dims - [2*rounding, 2*rounding, 1]);
             }
         }
     } else {
