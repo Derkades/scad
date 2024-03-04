@@ -1,9 +1,9 @@
 module bettersphere(r) {
-   sphere(r, $fs=0.5);
+   sphere(r, $fs=0.25);
 }
 
 module bettercylinder(h, r) {
-   cylinder(h=h, r=r, $fs=0.5);
+   cylinder(h=h, r=r, $fs=0.25);
 }
 
 module roundedcube(dims, rounding, only_sides=false) {
