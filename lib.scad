@@ -36,3 +36,7 @@ module roundedcylinder(h, r, rounding) {
 }
 
 //roundedcylinder(50, 20, 5);
+
+module centercube(size) {
+    translate([-size/2, -size/2, -size/2]) cube(size);
+}
