@@ -2,7 +2,7 @@ use <lib.scad>;
 
 width = 20;
 length = 100;
-steer_radius = 25;
+steer_radius = 25.2 / 2;
 steer_wall = 7;
 light_hole = 6;
 mounting_flat_spot_width = (steer_radius + steer_wall) * 2 + 25;
@@ -10,7 +10,7 @@ mounting_flat_spot_width = (steer_radius + steer_wall) * 2 + 25;
 bolt_size = 6;
 light_bolt_length = 30;
 light_nut_size = 11;
-light_nut_thickness = 8;
+light_nut_thickness = 6;
 
 difference() {
     union(){
