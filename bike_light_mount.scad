@@ -5,7 +5,7 @@ length = 100;
 steer_radius = 25.2 / 2;
 steer_wall = 7;
 light_hole = 6;
-mounting_flat_spot_width = (steer_radius + steer_wall) * 2 + 25;
+mounting_flat_spot_width = (steer_radius + steer_wall) * 2 + 30;
 
 bolt_size = 6;
 light_bolt_length = 30;
@@ -15,10 +15,10 @@ light_nut_thickness = 6;
 difference() {
     union(){
         translate([-width/2, 0, 0])
-        roundedcube([width, length, width], 3);
+        cube([width, length, width], 3);
 
         translate([0, width/2, 0])
-        roundedcylinder(width, steer_radius+steer_wall, 3);
+        cylinder(h=width, r=steer_radius+steer_wall);
 
         translate([-mounting_flat_spot_width/2, 0, 0])
         cube([mounting_flat_spot_width, width, width]);
@@ -32,9 +32,9 @@ difference() {
     translate([0, width/2, -1])
     cylinder(h=width+2, r=steer_radius);
 
-     // Bolt holes for mounting to steer rod
+    // Bolt holes for mounting to steer rod
     for (x = [-1, 1]) {
-        translate([x*mounting_flat_spot_width/2 - x*width/3, width + 1, width/2])
+        translate([x*mounting_flat_spot_width/2 - x*width/2.5, width + 1, width/2])
         rotate([90, 0, 0])
         cylinder(h=width+2, r=bolt_size/2);
     }
