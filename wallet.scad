@@ -1,32 +1,34 @@
 use <lib.scad>
 
-cards_width = 40;
-cards_length = 70;
-cards = 6;
-card_height = 1;
+cards_width = 53.98 + 0.5;
+cards_length = 85.6 + 0.5;
+cards = 5;
+card_height = 0.76 + 0.3;
 cards_height = cards * card_height;
-wall = 1;
-wall2 = 4;
+wall = 1.2;
+wall2 = 3.5;
 rounding = 3;
-bump = 1;
+bump = 0.5;
 bump_offset = 0.75;
 
 difference() {
-    roundedcube([cards_width+wall*2, cards_length+wall*2, cards_height], rounding, only_sides=true);
+    roundedcube([cards_width+wall*2, cards_length+wall, cards_height+wall*2], rounding, only_sides=true);
 
+    // slot for cards
     translate([wall, wall, wall])
-    roundedcube([cards_width, cards_length, cards_height-wall*2], rounding, only_sides=true);
+    roundedcube([cards_width, cards_length-wall, cards_height], rounding, only_sides=true);
 
+    // window
     translate([wall+wall2, wall+wall2, -1])
-    roundedcube([cards_width-wall2*2, cards_length-wall2*2, cards_height+2], rounding, only_sides=true);
+    roundedcube([cards_width-wall2*2, cards_length-wall2*2-wall, cards_height+wall*2+2], rounding, only_sides=true);
 
-    // opening on one side
+    // opening for cards to slide out
     translate([wall, -1, wall])
-    cube([cards_width, wall2+2, cards_height - wall*2]);
+    cube([cards_width, wall2+2, cards_height]);
 }
 
 // bumps
 for (x = [wall, wall+cards_width]) {
-    translate([x, cards_length * bump_offset, 0])
+    translate([x, cards_length * bump_offset, wall])
     bettercylinder(cards_height, bump);
 }
