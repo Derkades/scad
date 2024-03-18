@@ -40,3 +40,12 @@ module roundedcylinder(h, r, rounding) {
 module centercube(size) {
     translate([-size/2, -size/2, -size/2]) cube(size);
 }
+
+module hollowcylinder(h, ir, or) {
+    difference() {
+        bettercylinder(h, or);
+        
+        translate([0, 0, -0.001])
+        bettercylinder(h+0.002, ir);
+    }
+}
