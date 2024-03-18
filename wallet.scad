@@ -1,8 +1,16 @@
 use <lib.scad>
 
+/*
+For best results while still being easy to remove, print with the following support settings in PrusaSlicer:
+Supports: enabled
+Style: Snug
+Pattern: Honeycomb
+Top interface layers: 0
+*/
+
+cards = 5; // <- adjust this
 cards_width = 53.98 + 0.5;
 cards_length = 85.6 + 0.5;
-cards = 5;
 card_height = 0.76 + 0.3;
 cards_height = cards * card_height;
 wall = 1.2;
