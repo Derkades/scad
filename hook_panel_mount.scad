@@ -15,7 +15,7 @@ module hook_panel_mount(height, width, hook, panel_thickness) {
     hull() {
         for (offset = [0.5*width, 2.5*width]) {
             translate([-panel_thickness - width/2, 0, height - offset])
-            #rotate([-90, 0, 0])
+            rotate([-90, 0, 0])
             bettercylinder(width, width/2);
         }
     }
