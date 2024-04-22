@@ -47,5 +47,5 @@ module din_clamp(height, width) {
     }
 }
 
-din_clamp(40, 5);
+din_clamp(40, 30);
     
