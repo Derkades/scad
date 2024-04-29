@@ -12,11 +12,13 @@ module screw_mount(hole_r, t) {
     }
 }
 
-h = 40;
-ol = 100;
-ow = 50;
+h = 30;
+ol = 85;
+ow = 35;
 t = 2;
-cutout_width = 25;
+cutout_width = 15;
+cutout_top_distance_from_left = 5;
+cutout_height = cutout_width + h / 4;
 screw_r = 4;
 
 difference() {
@@ -27,11 +29,11 @@ difference() {
 
     // Right cutout
     translate([ol/2-t/2, 0, 0])
-    cube([t, cutout_width, cutout_width], anchor=BOTTOM);
+    cube([t, cutout_width, cutout_height], anchor=BOTTOM);
 
     // Top cutout
-    translate([-ol/2+cutout_width, ow/2-t/2, 0])
-    cube([cutout_width, t, cutout_width], anchor=BOTTOM);
+    translate([-ol/2+cutout_width/2+cutout_top_distance_from_left, ow/2-t/2, 0])
+    #cube([cutout_width, t, cutout_height], anchor=BOTTOM);
 }
 
 // Screw mount bottom left
