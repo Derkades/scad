@@ -3,7 +3,7 @@ use <din_clamp.scad>
 module din_clamp_pcb(pcb_height, pcb_width) {
     stop_width = 2;
     pcb_thickness_max = 1.65; // positive slop
-    pcb_thickness_min = 1.5; // negative slop
+    pcb_thickness_min = 1.55; // negative slop
     
     din_clamp(pcb_height+stop_width, pcb_width);
     
@@ -16,4 +16,4 @@ module din_clamp_pcb(pcb_height, pcb_width) {
 
 // STM32F401 development board. USB-C port at the bottom.
 // TODO dimensions
-din_clamp_pcb(40, 15);
+din_clamp_pcb(53.5, 21.5);

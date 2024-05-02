@@ -6,7 +6,7 @@ module din_clamp(height, width) {
     din_thickness = 1.2;
     thickness = 3;
     flex_thickness = 1.5;
-    cube([height, thickness, width]);
+    cube([height+flex_thickness*2, thickness, width]);
     
     topclamp_x = height + flex_thickness*3;
     bottomclamp_x = topclamp_x - din_height - flex_thickness;
