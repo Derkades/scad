@@ -9,15 +9,15 @@ Top interface layers: 0
 */
 
 cards = 5; // <- adjust this
-cards_width = 53.98 + 0.5;
+cards_width = 53.98 + 0.2;
 cards_length = 85.6 + 0.5;
-card_height = 0.76 + 0.3;
+card_height = 0.76 + 0.25;
 cards_height = cards * card_height;
-wall = 1.2;
-wall2 = 3.5;
+wall = 1.5;
+wall2 = 4;
 rounding = 3;
-bump = 0.5;
-bump_offset = 0.75;
+bump = 0.75;
+bump_offset = 0.6;
 
 difference() {
     roundedcube([cards_width+wall*2, cards_length+wall, cards_height+wall*2], rounding, only_sides=true);
