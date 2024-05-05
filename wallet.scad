@@ -9,6 +9,7 @@ Top interface layers: 0
 */
 
 cards = 5; // <- adjust this
+cash_holder = true;
 cards_width = 53.98 + 0.2;
 cards_length = 85.6 + 0.5;
 card_height = 0.76 + 0.25;
@@ -33,6 +34,11 @@ difference() {
     // opening for cards to slide out
     translate([wall, -1, wall])
     cube([cards_width, wall2+2, cards_height]);
+}
+
+if (cash_holder) {
+    translate([0, cards_length/2, 0])
+    roundedcube([cards_width/2, cards_length/2, wall], rounding, only_sides=true);
 }
 
 // bumps
