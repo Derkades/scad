@@ -9,12 +9,13 @@ Top interface layers: 0
 */
 
 cards = 5; // <- adjust this
+cash_holder = true;
 cards_width = 53.98 + 0.2;
 cards_length = 85.6 + 0.5;
 card_height = 0.76 + 0.25;
 cards_height = cards * card_height;
 wall = 1.5;
-wall2 = 4;
+edge = 4;
 rounding = 3;
 bump = 0.75;
 bump_offset = 0.6;
@@ -27,12 +28,17 @@ difference() {
     roundedcube([cards_width, cards_length-wall, cards_height], rounding, only_sides=true);
 
     // window
-    translate([wall+wall2, wall+wall2, -1])
-    roundedcube([cards_width-wall2*2, cards_length-wall2*2-wall, cards_height+wall*2+2], rounding, only_sides=true);
+    translate([wall+edge, wall+edge, -1])
+    roundedcube([cards_width-edge*2, cards_length-edge*2-wall, cards_height+wall*2+2], rounding, only_sides=true);
 
     // opening for cards to slide out
     translate([wall, -1, wall])
-    cube([cards_width, wall2+2, cards_height]);
+    cube([cards_width, edge+2, cards_height]);
+}
+
+if (cash_holder) {
+    translate([0, cards_length/2, 0])
+    roundedcube([cards_width/2, cards_length/2, wall], rounding, only_sides=true);
 }
 
 // bumps
