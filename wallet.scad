@@ -37,8 +37,8 @@ difference() {
 }
 
 if (cash_holder) {
-    translate([0, cards_length/2, 0])
-    roundedcube([cards_width/2, cards_length/2, wall], rounding, only_sides=true);
+    translate([rounding, cards_length/2+rounding/2, 0])
+    roundedcube([cards_width/2-rounding, cards_length/2-rounding, wall], rounding, only_sides=true);
 }
 
 // bumps
