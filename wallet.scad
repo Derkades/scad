@@ -40,7 +40,7 @@ difference() {
 }
 
 if (cash_holder) {
-    translate([rounding, cards_length/2+rounding/2, 0])
+    translate([holder_width/2, cards_length/2+rounding/2, 0])
     roundedcube([cards_width/2-rounding, cards_length/2-rounding, wall], rounding, only_sides=true);
 }
 
