@@ -20,8 +20,11 @@ rounding = 3;
 bump = 0.75;
 bump_offset = 0.6;
 
+holder_width = cards_width + wall*2;
+holder_height = cards_height + wall*2;
+
 difference() {
-    roundedcube([cards_width+wall*2, cards_length+wall, cards_height+wall*2], rounding, only_sides=true);
+    roundedcube([holder_width, cards_length+wall, holder_height], rounding, only_sides=false);
 
     // slot for cards
     translate([wall, wall, wall])
