@@ -10,6 +10,9 @@ Top interface layers: 0
 
 cards = 5; // <- adjust this
 cash_holder = true;
+recess = true;
+recess_offset = 16;
+recess_diameter = 20;
 cards_width = 53.98 + 0.2;
 cards_length = 85.6 + 0.5;
 card_height = 0.76 + 0.25;
@@ -37,6 +40,11 @@ difference() {
     // opening for cards to slide out
     translate([wall, -1, wall])
     cube([cards_width, edge+2, cards_height]);
+
+    if (recess) {
+        translate([recess_offset, -7, holder_height])
+        cylinder(d=recess_diameter, h=10, center=true);
+    }
 }
 
 if (cash_holder) {
