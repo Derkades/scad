@@ -1,9 +1,9 @@
 module bettersphere(r) {
-   sphere(r, $fn=8*r);
+   sphere(r, $fn=16*r);
 }
 
 module bettercylinder(h, r) {
-   cylinder(h=h, r=r, $fn=8*r);
+   cylinder(h=h, r=r, $fn=16*r);
 }
 
 module roundedcube(dims, rounding, only_sides=false) {
