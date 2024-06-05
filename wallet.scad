@@ -13,14 +13,14 @@ cash_holder = true;
 recess = true;
 recess_offset = 16;
 recess_diameter = 20;
-cards_width = 53.98 + 0.2;
+cards_width = 53.98 + 0.5;
 cards_length = 85.6 + 0.5;
 card_height = 0.76 + 0.25;
 cards_height = cards * card_height;
 wall = 1.5;
 edge = 4;
 rounding = 3;
-bump = 0.75;
+bump = 0.6;
 bump_offset = 0.6;
 
 holder_width = cards_width + wall*2;
