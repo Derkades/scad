@@ -19,8 +19,10 @@ card_height = 0.76 + 0.25;
 cards_height = cards * card_height;
 wall = 1.5;
 edge = 4;
+edge = 7;
 rounding = 3;
 bump = 0.6;
+bump = 0.65;
 bump_offset = 0.6;
 
 holder_width = cards_width + wall*2;
