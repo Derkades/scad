@@ -16,7 +16,7 @@ base_w = 40;
 
 /* [Brush stand parameters] */
 // Width (X) of brush
-brush_w = 30;
+brush_w = 40;
 // Whether to add a raised section for the brush to stand on
 brush_raised = true;
 
@@ -73,7 +73,8 @@ module attachment_stand(wx, wy, t) {
 module brush_stand() {
     h = 11;
     width_y = 9;
-
+    
+    translate([0, 0, brush_raised ? base_t : 0])
     hull() {
         // Back (wide side)
         back(width_y/2)
@@ -96,7 +97,7 @@ module brush_stand() {
     }
     
     if (brush_raised)
-    cylinder(r=15, h=base_t*2, $fn=100);
+    cylinder(r=35/2, h=base_t*2, $fn=100);
     
     // Base
     cuboid([brush_w, base_w, base_t], anchor=BOTTOM);
@@ -108,7 +109,7 @@ module charger_stand() {
     back_width = 30.5;
     cyl_r = 23.4;
     cyl_yscale = 1.30;
-    offset_front = 8;
+    offset_front = 15;
     
     back(-offset_front)
     difference() {
