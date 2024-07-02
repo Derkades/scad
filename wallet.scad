@@ -8,9 +8,9 @@ Pattern: Honeycomb
 Top interface layers: 0
 */
 
-cards = 5; // <- adjust this
+cards = 4; // <- adjust this
 cash_holder = true;
-recess = true;
+recess = false;
 recess_offset = 16;
 recess_diameter = 20;
 cards_width = 53.98 + 0.5;
@@ -18,10 +18,8 @@ cards_length = 85.6 + 0.5;
 card_height = 0.76 + 0.25;
 cards_height = cards * card_height;
 wall = 1.5;
-edge = 4;
 edge = 7;
 rounding = 3;
-bump = 0.6;
 bump = 0.65;
 bump_offset = 0.6;
 
