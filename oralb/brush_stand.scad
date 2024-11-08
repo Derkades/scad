@@ -1,18 +1,18 @@
 include <../BOSL2/std.scad>
 
-/* [Module counts] */
-// Number of toothbrush attachments
-attachments = 6;
-// Number of toothbrushes
-brushes = 1;
-// Number of chargers
-chargers = 1;
+// a = attachment
+// b = brush 
+// c = charger
+configuration = "aabcaabccab";
 
 /* [Base parameters] */
 // Thickness, except for charger which must always be 4
 base_t = 2;
 // Width (Y) of base
 base_w = 40;
+
+/* [Attachment stand parameters] */
+attachment_w = 18;
 
 /* [Brush stand parameters] */
 // Width (X) of brush
@@ -111,6 +111,7 @@ module charger_stand() {
     cyl_yscale = 1.30;
     offset_front = 15;
     
+    right(2)
     back(-offset_front)
     difference() {
         union() {
@@ -125,10 +126,14 @@ module charger_stand() {
             back(back)
             cuboid([15, t, t], anchor=BOTTOM+FRONT);
              
-            // Connection to left part
-            back(offset_front)
-            left(cyl_r + t)
-            cuboid([20, base_w, base_t], anchor=BOTTOM);
+            // Connection to left and right part
+            back(offset_front) {
+                left(cyl_r + t + 3)
+                cuboid([15, base_w, base_t], anchor=BOTTOM+LEFT);
+                right(cyl_r + t + 3)
+                cuboid([15, base_w, base_t], anchor=BOTTOM+RIGHT);
+            }
+            
         }
         
         // Inner cylinder
@@ -144,36 +149,24 @@ module charger_stand() {
     }
 }
 
-module base() {
-    // Attachments
-    attachment_width = 18;
-    
-    if (attachments > 0)
-    for (i = [1:attachments]) {
-        x = i * attachment_width - attachment_width/2;
-        right(x)
-        attachment_stand(wx=attachment_width, wy=base_w, t=base_t);
-    }
-    
-    // Brushes    
-    brush_offset = attachments * attachment_width;
-    if (brushes > 0)
-    for (i = [1:brushes]) {
-        x = brush_offset + i * brush_w - brush_w/2;
-        right(x)
-        brush_stand();
-    }
-    
-    // Chargers
-    charger_l = 23.4*2 + 4*2;
-    charger_offset = brush_offset + brushes * brush_w;
-    
-    if (chargers > 0)
-    for (i = [1:chargers]) {
-        x = charger_offset + i * charger_l - charger_l/2;
-        right(x)
-        charger_stand();
+module base(offset, index) {    
+    if (index < len(configuration)) {
+        c = configuration[index];
+        if (c == "a") {
+            right(offset + attachment_w/2)
+            attachment_stand(wx=attachment_w, wy=base_w, t=base_t);
+            base(offset + attachment_w, index + 1);
+        } else if (c == "b") {
+            right(offset + brush_w/2)
+            brush_stand();
+            base(offset + brush_w, index + 1);
+        } else if (c == "c") {
+            charger_w = 23.4*2 + 4*2 + 2;
+            right(offset + charger_w/2)
+            charger_stand();
+            base(offset + charger_w, index + 1);
+        }
     }
 }
 
-base();
+base(0, 0);
