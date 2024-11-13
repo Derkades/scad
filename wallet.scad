@@ -1,59 +1,67 @@
-use <lib.scad>
+include <BOSL2/std.scad>
 
 /*
 For best results while still being easy to remove, print with the following support settings in PrusaSlicer:
-Supports: enabled
+Supports: Supports enforcers only
 Style: Snug
 Pattern: Honeycomb
 Top interface layers: 0
+Paint-on supports:
+  Tool type: smart fill
+  Left click on bottom side of overhanging section
 */
 
+
+$fa = 0.5;
+$fs = 0.5;
+
 cards = 4; // <- adjust this
-cash_holder = true;
+cash_holder = false;
 recess = false;
-recess_offset = 16;
+recess_offset = 10;
 recess_diameter = 20;
 cards_width = 53.98 + 0.5;
 cards_length = 85.6 + 0.5;
 card_height = 0.76 + 0.25;
 cards_height = cards * card_height;
-wall = 1.5;
-edge = 7;
+wall = 1.6;
+edge = 6;
 rounding = 3;
-bump = 0.65;
-bump_offset = 0.6;
+bump_r = 0.65;
+bump_offset = 10;
 
 holder_width = cards_width + wall*2;
+holder_length = cards_length + wall*2;
 holder_height = cards_height + wall*2;
 
+SIDES = [LEFT+FRONT, RIGHT+FRONT, LEFT+BACK, RIGHT+BACK];
+
 difference() {
-    roundedcube([holder_width, cards_length+wall, holder_height], rounding, only_sides=false);
+    // outer shell
+    cuboid([holder_width, cards_length+wall, holder_height], rounding=rounding, edges=[LEFT, RIGHT, BACK]);
 
     // slot for cards
-    translate([wall, wall, wall])
-    roundedcube([cards_width, cards_length-wall, cards_height], rounding, only_sides=true);
+    fwd(wall)
+    cuboid([cards_width, cards_length+wall, cards_height], rounding=rounding, edges=[BACK+LEFT, BACK+RIGHT]);
 
     // window
-    translate([wall+edge, wall+edge, -1])
-    roundedcube([cards_width-edge*2, cards_length-edge*2-wall, cards_height+wall*2+2], rounding, only_sides=true);
-
-    // opening for cards to slide out
-    translate([wall, -1, wall])
-    cube([cards_width, edge+2, cards_height]);
+    cuboid([cards_width-edge*2, cards_length-edge*2, cards_height+wall*2+0.1], rounding=rounding, edges=SIDES);
 
     if (recess) {
-        translate([recess_offset, -7, holder_height])
-        cylinder(d=recess_diameter, h=10, center=true);
+        left(recess_offset)
+        fwd(holder_length/2 + 7)
+        cyl(d=recess_diameter, h=holder_height, anchor=BOTTOM);
     }
 }
 
 if (cash_holder) {
-    translate([holder_width/2, cards_length/2+rounding/2, 0])
-    roundedcube([cards_width/2-rounding, cards_length/2-rounding, wall], rounding, only_sides=true);
+    down(holder_height/2)
+    cuboid([cards_width/2-rounding, cards_length/2-rounding, wall], rounding=rounding, edges=[FRONT+LEFT], anchor=LEFT+FRONT+BOTTOM);
 }
 
 // bumps
-for (x = [wall, wall+cards_width]) {
-    translate([x, cards_length * bump_offset, wall])
-    bettercylinder(cards_height, bump);
+for (x = [-cards_width/2, +cards_width/2]) {
+    right(x)
+    back(bump_offset)
+    cyl(h=cards_height, r=bump_r);
 }
