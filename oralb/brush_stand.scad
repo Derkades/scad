@@ -20,6 +20,9 @@ brush_w = 40;
 // Whether to add a raised section for the brush to stand on
 brush_raised = true;
 
+$fa = 0.5;
+$fs = 0.5;
+
 module attachment_stand_part(height, cyl_r, top=false) {
     t = 2;
     cyl_h = 9;
@@ -31,16 +34,16 @@ module attachment_stand_part(height, cyl_r, top=false) {
     difference() {
         union() {
             // Pillar
-            cylinder(r=pillar_r, h=height+10, $fn=50);
+            cylinder(r=pillar_r, h=height+10);
             
             // Holder outer cylinder
             translate([0, cyl_y, cyl_z]) xrot(cyl_xrot)
-            cylinder(r=cyl_r+t, h=cyl_h, $fn=50, anchor=CENTER);
+            cylinder(r=cyl_r+t, h=cyl_h, anchor=CENTER);
         }
         
         translate([0, cyl_y, cyl_z]) xrot(cyl_xrot) {
             // Holder inner cylinder
-            cylinder(r=cyl_r, h=cyl_h+0.001, $fn=50, anchor=CENTER);
+            cylinder(r=cyl_r, h=cyl_h+0.001, anchor=CENTER);
             
             // Remove top part
             translate([0, (cyl_r+t)/2, 0])
@@ -50,7 +53,7 @@ module attachment_stand_part(height, cyl_r, top=false) {
                 // Round cutout at top of holder for brush
                 down(cyl_h)
                 xrot(90)
-                cylinder(r=14/2, h=10, $fn=50);
+                cylinder(r=14/2, h=10);
             } else {
                 // Cut of rest of pillar
                 translate([0, 0, -cyl_h])
@@ -71,16 +74,16 @@ module attachment_stand(wx, wy, t) {
 }
 
 module brush_stand() {
-    h = 11;
-    width_y = 9;
+    h = 10;
+    width_y = 8.5;
     
-    translate([0, 0, brush_raised ? base_t : 0])
+    translate([0, 0, brush_raised ? base_t*2 : base_t])
     hull() {
         // Back (wide side)
         back(width_y/2)
         intersection() {
             fwd(7.5)
-            cylinder(r=7.5, h=h, $fn=50);
+            cylinder(r=7.5, h=h);
             
             fwd(1.2)
             cuboid([7.5, 2, h], anchor=BOTTOM+FRONT);
@@ -90,20 +93,20 @@ module brush_stand() {
         fwd(width_y/2)
         intersection() {
             back(7)
-            cylinder(r=7, h=h, $fn=50);
+            cylinder(r=7, h=h);
             
             cuboid([5.5, 1, h], anchor=BOTTOM+FRONT);
         }
     }
     
     if (brush_raised)
-    cylinder(r=35/2, h=base_t*2, $fn=100);
+    cylinder(r=35/2, h=base_t*2);
     
     // Base
     cuboid([brush_w, base_w, base_t], anchor=BOTTOM);
 }
 
-module charger_stand() {
+module charger_stand(right_connection) {
     t = 4;
     back = 33.5;
     back_width = 30.5;
@@ -117,7 +120,7 @@ module charger_stand() {
         union() {
             // Outer cylinder
             yscale(cyl_yscale)
-            cylinder(h=t, r=cyl_r+t, $fn=200);
+            cylinder(h=t, r=cyl_r+t);
             
             cuboid([back_width + 2*t, back+t, t], anchor=BOTTOM+FRONT);
             
@@ -130,15 +133,17 @@ module charger_stand() {
             back(offset_front) {
                 left(cyl_r + t + 3)
                 cuboid([15, base_w, base_t], anchor=BOTTOM+LEFT);
-                right(cyl_r + t + 3)
-                cuboid([15, base_w, base_t], anchor=BOTTOM+RIGHT);
+                if (right_connection) {
+                    right(cyl_r + t + 3)
+                    cuboid([15, base_w, base_t], anchor=BOTTOM+RIGHT);
+                }
             }
             
         }
         
         // Inner cylinder
         yscale(cyl_yscale)
-        cylinder(h=t+0.01, r=cyl_r, $fn=200);
+        cylinder(h=t+0.01, r=cyl_r);
         
         // Back cutout
         cuboid([back_width, back, t+0.01], anchor=BOTTOM+FRONT);
@@ -163,7 +168,7 @@ module base(offset, index) {
         } else if (c == "c") {
             charger_w = 23.4*2 + 4*2 + 2;
             right(offset + charger_w/2)
-            charger_stand();
+            charger_stand(index < len(configuration) - 1);
             base(offset + charger_w, index + 1);
         }
     }
