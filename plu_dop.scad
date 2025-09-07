@@ -2,11 +2,11 @@ include <BOSL2/std.scad>
 
 $fs = 0.5;
 $fa = 0.5;
-ir = 2.8;
-or = 5.7;
+ir = 2.8/2;
+or = 5.7/2;
 t = or - ir;
 h = 26;
-hole = 2;
+hole = 2.5/2;
 
 difference() {
     union() {
