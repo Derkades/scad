@@ -4,8 +4,6 @@ include <BOSL2/screws.scad>;
 height = 20;
 t = 2;
 
-clip_width = 10;
-
 count = 5;
 
 e = 0.001;
@@ -40,15 +38,16 @@ strip(36.3, height * 0.75, false); // horizontal
 
 strip(39.4, height * 0.25, true); // vertical
 
-module clip() {
-    clip_width = 20;
-    left(t+m)
-    cuboid([t/2, height+t/2, clip_width], anchor=BACK+LEFT);
-    
-    right(t+m)
-    cuboid([t/2, height+t/2, clip_width], anchor=BACK+RIGHT);
-
-    cuboid([t+m*2, t/2, clip_width], anchor=BACK);
-}
-
-//clip(10);
+//module clip() {
+//    clip_width = 15;
+//    
+//    left(t+m)
+//    cuboid([t/2, height+t/2, clip_width], anchor=BACK+LEFT);
+//    
+//    right(t+m)
+//    cuboid([t/2, height+t/2, clip_width], anchor=BACK+RIGHT);
+//
+//    cuboid([t+m*2, t/2, clip_width], anchor=BACK);
+//}
+//
+//clip();
