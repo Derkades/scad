@@ -1,5 +1,5 @@
-include <../BOSL2/std.scad>
-include <../BOSL2/gears.scad>
+include <BOSL2/std.scad>
+include <BOSL2/gears.scad>
 
 teeth1 = 10;
 teeth2 = 90;
@@ -17,4 +17,3 @@ d23 = gear_dist(circ_pitch=pitch, teeth1=teeth2, teeth2=teeth3);
 
 translate([d23, 0, 5])
 spur_gear(circ_pitch=pitch, teeth=teeth3, thickness=4, shaft_diam=diam3, anchor=BOTTOM);
- 

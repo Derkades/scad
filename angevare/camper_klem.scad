@@ -1,4 +1,4 @@
-include <../BOSL2/std.scad>
+include <BOSL2/std.scad>
 
 $fa = 0.5;
 $fs = 0.5;
@@ -13,4 +13,4 @@ up(h)
 cyl(r=4.45/2, r2=4/2, h=15-h, anchor=BOTTOM);
 
 up(15)
-cyl(r1=4/2, r2=0, h=2.5, anchor=BOTTOM); 
+cyl(r1=4/2, r2=0, h=2.5, anchor=BOTTOM);

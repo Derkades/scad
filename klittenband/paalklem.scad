@@ -1,4 +1,4 @@
-include <../BOSL2/std.scad>
+include <BOSL2/std.scad>
 
 $fa = 0.2;
 $fs = 0.2;
@@ -25,12 +25,12 @@ mirror([mirror_x, 0, 0]) {
                 right(t) fwd(t)
                 cuboid([w, l, h/2], anchor=BOTTOM+BACK+LEFT);
             }
-            
+
             // versteviging
             position(BOTTOM)
             cuboid([wx+t*2+t2*2, wy+t*2+t2*2, t], anchor=BOTTOM, rounding=10, edges="Z");
         }
-        
+
         // binnenkant
         cuboid([wx, wy, h], anchor=BOTTOM, chamfer=6, edges=[LEFT+FRONT,LEFT+BACK]);
         // opening

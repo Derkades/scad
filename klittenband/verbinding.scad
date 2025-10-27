@@ -1,4 +1,4 @@
-include <../BOSL2/std.scad>
+include <BOSL2/std.scad>
 
 $fa = 0.2;
 $fs = 0.2;

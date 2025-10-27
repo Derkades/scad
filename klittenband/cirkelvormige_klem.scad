@@ -1,4 +1,4 @@
-include <../BOSL2/std.scad>
+include <BOSL2/std.scad>
 
 $fa = 0.5;
 $fs = 0.5;
@@ -23,7 +23,7 @@ if (pin) {
     difference() {
         tube(ir=ir, or=ir+t2, h=h, chamfer=chamfer);
         cuboid([2*(ir+t2), ir+t2, h+t2], anchor=top ? BACK : FRONT);
-       
+
         cuboid([(ir+t2)*2, r_pin*4, h/2], chamfer=-chamfer, anchor=top ? TOP : BOTTOM, edges=top ? BOTTOM+FRONT : TOP+FRONT);
     }
 
@@ -35,12 +35,12 @@ if (pin) {
 //    } else {
 //        left(ir+w) {
 //            cuboid([w, t, h], anchor=LEFT+BACK, chamfer=1, edges=FRONT+LEFT);
-//            
+//
 //            cuboid([t, t, h], anchor=LEFT+FRONT);
-//            
+//
 //            back(2*t)
 //            cuboid([w/2, t, h], anchor=LEFT+BACK, chamfer=1, edges=[BACK+LEFT, BACK+RIGHT, FRONT+RIGHT]);
-//        }    
+//        }
 //    }
 
     // pin holes
@@ -53,17 +53,16 @@ if (pin) {
             cyl(r=r_pin, h=h);
         }
     }
-    
+
     // hook hole
     if (!top) {
         fwd(ir+t2/2)
-        difference() { 
+        difference() {
             cuboid([r_rope*2+t1*2, r_rope*2+t1*2, h/2], chamfer=chamfer, except=BACK, anchor=BACK+TOP);
 
             fwd(t2/2+t1)
             cyl(r=r_rope, h=h/2, anchor=TOP);
         }
-        
+
     }
 }
-

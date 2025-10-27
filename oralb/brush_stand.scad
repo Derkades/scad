@@ -1,7 +1,7 @@
-include <../BOSL2/std.scad>
+include <BOSL2/std.scad>
 
 // a = attachment
-// b = brush 
+// b = brush
 // c = charger
 configuration = "aabcaabccab";
 
@@ -30,21 +30,21 @@ module attachment_stand_part(height, cyl_r, top=false) {
     cyl_y = -4.2;
     cyl_z = height + 8;
     cyl_xrot = 90+45;
-    
+
     difference() {
         union() {
             // Pillar
             cylinder(r=pillar_r, h=height+10);
-            
+
             // Holder outer cylinder
             translate([0, cyl_y, cyl_z]) xrot(cyl_xrot)
             cylinder(r=cyl_r+t, h=cyl_h, anchor=CENTER);
         }
-        
+
         translate([0, cyl_y, cyl_z]) xrot(cyl_xrot) {
             // Holder inner cylinder
             cylinder(r=cyl_r, h=cyl_h+0.001, anchor=CENTER);
-            
+
             // Remove top part
             translate([0, (cyl_r+t)/2, 0])
             cuboid([(cyl_r+t)*2, cyl_r+t, cyl_h+0.001]);
@@ -63,12 +63,12 @@ module attachment_stand_part(height, cyl_r, top=false) {
     }
 }
 
-module attachment_stand(wx, wy, t) {    
+module attachment_stand(wx, wy, t) {
     cuboid([wx, wy, t], anchor=BOTTOM);
-    
+
     translate([0, -13, 0])
     attachment_stand_part(10, 10.5/2);
-    
+
     translate([0, 14, 0])
     attachment_stand_part(34, 9/2, top=true);
 }
@@ -76,7 +76,7 @@ module attachment_stand(wx, wy, t) {
 module brush_stand() {
     h = 10;
     width_y = 8.5;
-    
+
     translate([0, 0, brush_raised ? base_t*2 : base_t])
     hull() {
         // Back (wide side)
@@ -84,24 +84,24 @@ module brush_stand() {
         intersection() {
             fwd(7.5)
             cylinder(r=7.5, h=h);
-            
+
             fwd(1.2)
             cuboid([7.5, 2, h], anchor=BOTTOM+FRONT);
         }
-        
+
         // Front (narrow side)
         fwd(width_y/2)
         intersection() {
             back(7)
             cylinder(r=7, h=h);
-            
+
             cuboid([5.5, 1, h], anchor=BOTTOM+FRONT);
         }
     }
-    
+
     if (brush_raised)
     cylinder(r=35/2, h=base_t*2);
-    
+
     // Base
     cuboid([brush_w, base_w, base_t], anchor=BOTTOM);
 }
@@ -113,7 +113,7 @@ module charger_stand(right_connection) {
     cyl_r = 23.4;
     cyl_yscale = 1.30;
     offset_front = 15;
-    
+
     right(2)
     back(-offset_front)
     difference() {
@@ -121,14 +121,14 @@ module charger_stand(right_connection) {
             // Outer cylinder
             yscale(cyl_yscale)
             cylinder(h=t, r=cyl_r+t);
-            
+
             cuboid([back_width + 2*t, back+t, t], anchor=BOTTOM+FRONT);
-            
+
             // Cable bridge
             up(4)
             back(back)
             cuboid([15, t, t], anchor=BOTTOM+FRONT);
-             
+
             // Connection to left and right part
             back(offset_front) {
                 left(cyl_r + t + 3)
@@ -138,23 +138,23 @@ module charger_stand(right_connection) {
                     cuboid([15, base_w, base_t], anchor=BOTTOM+RIGHT);
                 }
             }
-            
+
         }
-        
+
         // Inner cylinder
         yscale(cyl_yscale)
         cylinder(h=t+0.01, r=cyl_r);
-        
+
         // Back cutout
         cuboid([back_width, back, t+0.01], anchor=BOTTOM+FRONT);
-           
+
         // Cable cutout
         back(back)
         cuboid([6, 6, 6], anchor=BOTTOM+FRONT);
     }
 }
 
-module base(offset, index) {    
+module base(offset, index) {
     if (index < len(configuration)) {
         c = configuration[index];
         if (c == "a") {
