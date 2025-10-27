@@ -2,10 +2,10 @@ include <BOSL2/std.scad>
 include <BOSL2/screws.scad>
 
 iw = 67.1; 
-id = 60.5;
-//h = 8; // zonder plexiglas
-h = 10; // met plexiglas
-t = 1;
+id = 60.6;
+h = 8; // zonder plexiglas
+//h = 10; // met plexiglas
+t = 2;
 hole = true;
 
 difference() {
@@ -15,6 +15,6 @@ difference() {
     
     if (hole) {
         down(h/2)
-        cuboid([iw-h, id-h, t]);
+        cuboid([iw-h*2, id-h*2, t]);
     }
 }
