@@ -3,7 +3,7 @@ include <BOSL2/std.scad>
 // a = attachment
 // b = brush
 // c = charger
-configuration = "aabcaabccab";
+configuration = "caaaac";
 
 /* [Base parameters] */
 // Thickness, except for charger which must always be 4
@@ -12,7 +12,7 @@ base_t = 2;
 base_w = 40;
 
 /* [Attachment stand parameters] */
-attachment_w = 18;
+attachment_w = 35;
 
 /* [Brush stand parameters] */
 // Width (X) of brush
@@ -55,7 +55,7 @@ module attachment_stand_part(height, cyl_r, top=false) {
                 xrot(90)
                 cylinder(r=14/2, h=10);
             } else {
-                // Cut of rest of pillar
+                // Cut off rest of pillar
                 translate([0, 0, -cyl_h])
                 cuboid([(cyl_r+t)*2, (cyl_r+t)*2, cyl_h]);
             }
@@ -106,7 +106,7 @@ module brush_stand() {
     cuboid([brush_w, base_w, base_t], anchor=BOTTOM);
 }
 
-module charger_stand(right_connection) {
+module charger_stand(left_connection, right_connection) {
     t = 4;
     back = 33.5;
     back_width = 30.5;
@@ -131,8 +131,10 @@ module charger_stand(right_connection) {
 
             // Connection to left and right part
             back(offset_front) {
-                left(cyl_r + t + 3)
-                cuboid([15, base_w, base_t], anchor=BOTTOM+LEFT);
+                if (left_connection) {
+                    left(cyl_r + t + 3)
+                    cuboid([15, base_w, base_t], anchor=BOTTOM+LEFT);
+                }
                 if (right_connection) {
                     right(cyl_r + t + 3)
                     cuboid([15, base_w, base_t], anchor=BOTTOM+RIGHT);
@@ -168,7 +170,7 @@ module base(offset, index) {
         } else if (c == "c") {
             charger_w = 23.4*2 + 4*2 + 2;
             right(offset + charger_w/2)
-            charger_stand(index < len(configuration) - 1);
+            charger_stand(index > 0, index < len(configuration) - 1);
             base(offset + charger_w, index + 1);
         }
     }
