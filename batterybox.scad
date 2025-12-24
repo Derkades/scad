@@ -7,7 +7,21 @@ cells_parallel = 4;
 handle_length = 100;
 handle_screw = "M3";
 
-enclosure_part = "both"; // box, lid, both
+module xt60(anchor = CENTER) {
+    xt60_w = 15.6;
+    xt60_h = 8.3;
+    xt60_d = 6.5;
+
+    hull() {
+        left(xt60_w/4)
+        cuboid([xt60_w/2, xt60_h, xt60_d], anchor=anchor);
+
+        right(xt60_w/2 - xt60_h/2)
+        cyl(d=xt60_h, h=xt60_d, anchor=anchor);
+    }
+}
+
+enclosure_part = "lid"; // box, lid, both
 enclosure_length = cells_series * cell + 20; // clear screw corners
 enclosure_width = 71;
 enclosure_depth = cells_parallel * cell + 12; // room for BMS
@@ -15,12 +29,14 @@ enclosure_thickness = 3;
 
 difference() {
     enclosure();
-    
-    // hole for power wires
+
+    // xt60 connector
     left(enclosure_length/2 - 10)
+    up(enclosure_thickness/2+0.01)
     translate_side("lid")
-    cyl(h=enclosure_thickness+0.01, d=6);
-    
+    zrot(90)
+    xt60(anchor=TOP);
+
     // handle screw holes
     for (x = [-handle_length/2, handle_length/2])
     right(x)
