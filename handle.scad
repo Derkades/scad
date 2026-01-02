@@ -7,7 +7,7 @@ $fs = 0.5;
 length = 100; // distance between screws
 w = 15;
 t = 8;
-h = 20;
+h = 17;
 
 screw_spec = "M3";
 $slop = 0.1;
