@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   height="191.96371pt"
+   id="svg2"
+   inkscape:version="1.4.2 (ebf0e940d0, 2025-05-08)"
+   sodipodi:docname="ampelmann_inner.svg"
+   sodipodi:version="0.32"
+   width="172.47548pt"
+   version="1.1"
+   viewBox="0 0 215.59435 239.95464"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <metadata
+     id="metadata1">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:title>Ampelmaennchen</dc:title>
+        <dc:description>Ampelmaennchen are the little men on traffic signals.  These two are in the East German style (inspired by a wikipedia article).</dc:description>
+        <dc:subject>
+          <rdf:Bag>
+            <rdf:li>roadtravel</rdf:li>
+            <rdf:li>traffic signal man stop go sign pedestrian</rdf:li>
+            <rdf:li>transport</rdf:li>
+            <rdf:li>stop</rdf:li>
+            <rdf:li>roadsign</rdf:li>
+            <rdf:li>go</rdf:li>
+            <rdf:li>pedestrian</rdf:li>
+            <rdf:li>city</rdf:li>
+            <rdf:li>europe</rdf:li>
+          </rdf:Bag>
+        </dc:subject>
+        <dc:publisher>
+          <cc:Agent
+             rdf:about="http://www.openclipart.org/">
+            <dc:title>Open Clip Art Library</dc:title>
+          </cc:Agent>
+        </dc:publisher>
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>Matthew Gates</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <dc:rights>
+          <cc:Agent>
+            <dc:title>Publc Domain</dc:title>
+          </cc:Agent>
+        </dc:rights>
+        <dc:date>2005-07-28</dc:date>
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <cc:license
+           rdf:resource="http://web.resource.org/cc/PublicDomain" />
+        <dc:language>en</dc:language>
+      </cc:Work>
+      <cc:License
+         rdf:about="http://web.resource.org/cc/PublicDomain">
+        <cc:permits
+           rdf:resource="http://web.resource.org/cc/Reproduction" />
+        <cc:permits
+           rdf:resource="http://web.resource.org/cc/Distribution" />
+        <cc:permits
+           rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs4">
+    <linearGradient
+       id="linearGradient3528">
+      <stop
+         id="stop3530"
+         offset="0.0000000"
+         style="stop-color:#05ff00;stop-opacity:1.0000000;" />
+      <stop
+         id="stop3532"
+         offset="1.0000000"
+         style="stop-color:#0d8d0b;stop-opacity:0.79274613;" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient2070">
+      <stop
+         id="stop2072"
+         offset="0.0000000"
+         style="stop-color:#ff0000;stop-opacity:1.0000000;" />
+      <stop
+         id="stop2074"
+         offset="1.0000000"
+         style="stop-color:#9a1a00;stop-opacity:1.0000000;" />
+    </linearGradient>
+  </defs>
+  <sodipodi:namedview
+     bordercolor="#666666"
+     borderopacity="1.0"
+     id="base"
+     inkscape:current-layer="layer1"
+     inkscape:cx="109.15427"
+     inkscape:cy="186.44052"
+     inkscape:document-units="px"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:window-height="1412"
+     inkscape:window-width="2516"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:zoom="7.9703705"
+     pagecolor="#ffffff"
+     showguides="true"
+     inkscape:showpageshadow="2"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:window-maximized="1" />
+  <g
+     id="layer1"
+     inkscape:groupmode="layer"
+     inkscape:label="Layer 1"
+     transform="translate(-31.724114,-66.480861)">
+    <g
+       id="g1344"
+       inkscape:label="Layer 1"
+       transform="matrix(1.180066,0,0,1.180066,-19.0843,22.11447)" />
+    <g
+       id="g1">
+      <path
+         d="m 193.4492,225.42507 c 1.10492,-2.94726 3.32935,-11.13058 2.52474,-10.95812 0,0 -11.5352,-10.56435 -17.67547,-15.38541 -27.52523,-21.61155 -27.34652,-25.07479 -32.57765,-24.7396 -5.03373,0.32253 -53.140769,58.00885 -55.408952,56.25099 -12.197595,-9.45323 -38.329738,-34.05591 -32.100135,-32.56371 1.916333,0.19699 5.651534,1.52734 11.280571,3.2771 5.091134,1.58256 7.331251,1.73949 9.013454,0.99537 1.905814,-0.84303 5.058675,-3.80827 16.208807,-17.45292 17.893705,-21.8969 18.723975,-23.61393 18.723975,-26.55397 0,-2.05751 -0.96415,-4.338 -2.48971,-5.07652 -1.65073,-0.7991 -2.625,-1.91634 -6.47823,-0.3569 -1.70205,0.68885 -3.10235,0.90838 -3.90183,1.07607 -1.304924,0.27372 -2.597225,1.14587 -4.080207,0.59127 -0.908576,-0.33978 -3.873132,-1.67168 -7.075204,-3.58367 -3.202069,-1.91199 -9.180787,-4.96915 -13.30694,-7.33142 -6.140572,-4.17599 -11.951248,-6.14441 -12.335797,-7.96814 -0.379531,-1.79995 -2.684118,-5.38017 -8.554604,-10.56117 -9.991706,-8.81817 -11.395584,-9.63766 -9.765901,-13.22723 1.127931,-2.4844 3.952975,-5.48577 5.775335,-6.41768 1.277296,-0.65317 2.286626,-0.84836 3.703295,-0.19731 1.675423,0.76977 3.483564,1.98224 7.132739,5.48108 6.187407,5.93249 8.231252,7.57682 12.712541,9.31365 1.620988,0.62825 4.663134,1.68281 8.052474,3.11877 3.38934,1.43594 8.220338,3.44175 8.88347,3.68204 2.190671,0.7938 7.280288,2.63054 8.093901,2.63054 2.162788,0 5.331218,-2.52425 9.871738,-8.77868 3.13111,-4.31302 4.26889,-5.90784 8.03998,-10.20319 2.33995,-2.66525 4.38263,-6.63904 4.38263,-7.38904 0,-0.90626 -0.49609,-3.872405 -1.99338,-4.866255 -1.40062,-0.929679 -4.94048,-1.819651 -7.63056,-3.124267 -4.29121,-2.081121 -4.74996,-2.695156 -6.66396,-7.094039 -1.75486,-4.033141 -0.23442,-6.750244 1.12913,-13.664092 l -2.9905,-3.00938 -2.19549,-2.380175 c -1.00402,-1.088479 3.28012,-1.594616 4.09953,-1.594616 1.26695,0 3.35846,-2.19014 5.52781,-5.859002 2.83319,-4.791573 4.17251,-6.456683 3.71979,-6.721049 -9.30304,-7.540345 -13.05729,-8.36426 -13.28432,-9.543123 -0.13181,-0.684432 -1.40956,-1.445269 -0.0907,-1.643051 2.87398,-0.43098 5.27291,-0.276236 12.10941,1.798094 l 6.1541,1.867279 c 2.68682,-2.679207 4.80897,-7.38392 8.87178,-7.846649 9.92985,5.961283 20.73435,9.43017 31.25618,14.224368 5.08401,2.32934 7.48022,3.176803 7.53868,3.219747 0.0823,0.06046 -0.53134,8.801311 -0.76291,10.653222 -1.12733,1.842188 3.3543,2.832511 8.77677,5.551595 10.63732,5.334063 10.87619,4.963703 9.72525,6.3505 -0.93499,1.126606 -4.78555,0.508598 -11.69358,-0.539236 -4.0848,-0.619598 -8.77109,-0.285588 -9.7378,0.202957 -1.97953,1.000386 -13.42708,17.774133 -13.83984,20.317641 -0.1628,1.003261 1.0436,3.655941 6.44828,14.899131 4.41556,9.18555 5.53018,13.10718 7.7324,19.51343 0.9625,2.79989 4.45227,10.40751 4.92351,11.63165 2.24558,5.8333 9.77462,14.09293 30.97867,36.37098 19.69751,20.69521 26.37486,22.19812 21.97609,28.84929 -4.39201,6.64094 -5.46917,6.02706 -13.64236,14.51322 -2.38921,2.4807 -7.51848,6.89556 -11.48458,10.10384 -1.21048,0.97919 -7.317,4.21174 -7.92769,3.78868 0,0 0.24156,-2.76081 4.32123,-13.64289 z"
+         id="path1318"
+         style="fill:#71c837;fill-opacity:1;stroke-width:0.267932"
+         sodipodi:nodetypes="ssssssssssssssscsssscsssssssssssccssscssscssscsssssssssssscss"
+         transform="matrix(1.180066,0,0,1.180066,-19.0843,22.11447)" />
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   height="191.96371pt"
+   id="svg2"
+   inkscape:version="1.4.2 (ebf0e940d0, 2025-05-08)"
+   sodipodi:docname="ampelmann.svg"
+   sodipodi:version="0.32"
+   width="172.47548pt"
+   version="1.1"
+   viewBox="0 0 215.59435 239.95464"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <metadata
+     id="metadata1">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:title>Ampelmaennchen</dc:title>
+        <dc:description>Ampelmaennchen are the little men on traffic signals.  These two are in the East German style (inspired by a wikipedia article).</dc:description>
+        <dc:subject>
+          <rdf:Bag>
+            <rdf:li>roadtravel</rdf:li>
+            <rdf:li>traffic signal man stop go sign pedestrian</rdf:li>
+            <rdf:li>transport</rdf:li>
+            <rdf:li>stop</rdf:li>
+            <rdf:li>roadsign</rdf:li>
+            <rdf:li>go</rdf:li>
+            <rdf:li>pedestrian</rdf:li>
+            <rdf:li>city</rdf:li>
+            <rdf:li>europe</rdf:li>
+          </rdf:Bag>
+        </dc:subject>
+        <dc:publisher>
+          <cc:Agent
+             rdf:about="http://www.openclipart.org/">
+            <dc:title>Open Clip Art Library</dc:title>
+          </cc:Agent>
+        </dc:publisher>
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>Matthew Gates</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <dc:rights>
+          <cc:Agent>
+            <dc:title>Publc Domain</dc:title>
+          </cc:Agent>
+        </dc:rights>
+        <dc:date>2005-07-28</dc:date>
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <cc:license
+           rdf:resource="http://web.resource.org/cc/PublicDomain" />
+        <dc:language>en</dc:language>
+      </cc:Work>
+      <cc:License
+         rdf:about="http://web.resource.org/cc/PublicDomain">
+        <cc:permits
+           rdf:resource="http://web.resource.org/cc/Reproduction" />
+        <cc:permits
+           rdf:resource="http://web.resource.org/cc/Distribution" />
+        <cc:permits
+           rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs4">
+    <radialGradient
+       cx="298.12531"
+       cy="350.82419"
+       fx="298.12531"
+       fy="350.82419"
+       gradientTransform="matrix(0.267932,0,0,0.29818501,54.52761,34.655875)"
+       gradientUnits="userSpaceOnUse"
+       id="radialGradient3534"
+       inkscape:collect="always"
+       r="340.96289"
+       xlink:href="#linearGradient3528" />
+    <linearGradient
+       id="linearGradient3528">
+      <stop
+         id="stop3530"
+         offset="0.0000000"
+         style="stop-color:#05ff00;stop-opacity:1.0000000;" />
+      <stop
+         id="stop3532"
+         offset="1.0000000"
+         style="stop-color:#0d8d0b;stop-opacity:0.79274613;" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient2070">
+      <stop
+         id="stop2072"
+         offset="0.0000000"
+         style="stop-color:#ff0000;stop-opacity:1.0000000;" />
+      <stop
+         id="stop2074"
+         offset="1.0000000"
+         style="stop-color:#9a1a00;stop-opacity:1.0000000;" />
+    </linearGradient>
+  </defs>
+  <sodipodi:namedview
+     bordercolor="#666666"
+     borderopacity="1.0"
+     id="base"
+     inkscape:current-layer="g1344"
+     inkscape:cx="157.2064"
+     inkscape:cy="131.65592"
+     inkscape:document-units="px"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:window-height="1018"
+     inkscape:window-width="1920"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:zoom="2.8179515"
+     pagecolor="#ffffff"
+     showguides="true"
+     inkscape:showpageshadow="2"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:window-maximized="1" />
+  <g
+     id="layer1"
+     inkscape:groupmode="layer"
+     inkscape:label="Layer 1"
+     transform="translate(-31.724114,-66.480861)">
+    <g
+       id="g1344"
+       inkscape:label="Layer 1"
+       transform="matrix(1.180066,0,0,1.180066,-19.0843,22.11447)">
+      <path
+         d="m 188.20355,240.59014 c -0.7054,-0.7054 -0.80551,-1.88782 -0.35922,-4.24275 0.57587,-3.03865 1.8969,-7.24283 3.99936,-12.72791 0.97197,-2.53578 1.97122,-5.42258 2.22053,-6.41512 l 0.45331,-1.80461 -2.08603,-1.96784 c -2.42275,-2.28549 -7.26302,-6.18612 -15.55466,-12.53503 -10.47554,-8.02113 -20.0225,-15.78561 -26.33062,-21.41453 -3.38114,-3.01709 -4.46836,-3.73069 -5.13799,-3.37231 -0.96815,0.51814 -8.15992,7.97609 -18.86787,19.5662 -20.65865,22.3606 -33.221724,35.63133 -34.785292,36.74469 l -0.775701,0.55234 -1.005953,-0.6657 c -5.281256,-3.49497 -26.174307,-22.39376 -31.55821,-28.54594 -1.990858,-2.27496 -3.581385,-4.99233 -3.581385,-6.11869 0,-0.34487 0.256241,-0.88328 0.569425,-1.19646 0.501506,-0.50151 0.765161,-0.54931 2.210439,-0.40074 1.892205,0.19451 6.902933,1.48304 12.49226,3.21242 6.016161,1.86145 6.69516,1.89197 8.944588,0.40201 1.53095,-1.01406 3.741842,-3.55433 13.727785,-15.77294 17.555164,-21.48015 18.589154,-22.91522 18.589154,-25.79962 0,-2.00354 -0.50379,-2.944 -1.95281,-3.64546 -1.52218,-0.73687 -2.45959,-0.71053 -4.66632,0.13116 -5.638873,2.15076 -6.931302,2.54258 -8.028591,2.43401 -1.619049,-0.16019 -3.829024,-1.27806 -10.572096,-5.34765 -3.296841,-1.98972 -9.129065,-5.39668 -12.960492,-7.57103 -9.808699,-5.56647 -10.874894,-6.33932 -11.25906,-8.16123 -0.376624,-1.78615 -1.968949,-3.57651 -7.630146,-8.57907 -6.259836,-5.53156 -9.687672,-9.11842 -10.6212,-11.11394 -1.166042,-2.49254 -0.71187,-4.31669 1.957921,-7.86382 3.030599,-4.02652 4.916569,-5.39881 7.419703,-5.39881 2.529697,0 4.867007,1.53471 10.219298,6.71011 5.931853,5.73581 8.122683,7.32716 12.324872,8.9524 1.473626,0.56993 5.572985,2.26846 9.109688,3.7745 6.697769,2.85213 11.692523,4.61136 13.801598,4.86115 2.247705,0.2662 4.629415,-1.57114 7.953905,-6.13595 3.92398,-5.38795 5.29365,-7.14503 8.01552,-10.28265 3.51386,-4.0506 5.9979,-7.48303 5.9979,-8.28788 0,-1.61304 -3.1067,-4.031903 -6.66827,-5.191888 -4.06221,-1.323043 -7.94897,-4.390891 -9.46534,-7.471059 -0.82608,-1.678012 -0.88001,-1.960638 -0.87908,-4.606611 8e-4,-2.003518 0.22821,-4.004455 0.78651,-6.917423 l 0.78552,-4.098505 -2.78692,-2.796433 c -1.67658,-1.682304 -2.683788,-2.886664 -2.528066,-3.022908 2.031916,-1.77779 3.677306,-2.661813 5.789596,-3.110586 1.14497,-0.243255 3.16416,-2.753652 5.38748,-6.698056 1.14206,-2.026136 2.07647,-3.783242 2.07647,-3.904677 0,-0.121435 -0.87413,-0.703193 -1.9425,-1.292796 -3.46208,-1.910599 -9.0148,-5.823186 -11.649449,-8.208488 -1.17493,-1.063733 -1.241592,-1.192558 -0.949195,-1.834295 0.993321,-2.180104 7.752464,-1.562831 18.594924,1.698166 l 2.04429,0.614845 1.69419,-1.852749 c 4.39701,-4.808509 6.25091,-6.273625 7.93838,-6.273625 0.41129,0 4.18389,1.605531 8.38355,3.567852 4.19967,1.962318 13.24223,6.142796 20.09459,9.289955 6.85236,3.147156 12.50593,5.758405 12.56348,5.802772 0.0576,0.04437 -0.10735,2.467394 -0.36646,5.384504 -0.25911,2.917109 -0.42676,5.502594 -0.37257,5.74552 0.0611,0.273709 3.15538,1.971422 8.13649,4.464112 4.42087,2.212336 8.87918,4.603489 9.90735,5.313673 2.05335,1.418306 2.70264,2.460607 1.98183,3.181413 -1.10373,1.103733 -8.87386,1.165773 -15.73134,0.125607 -4.21686,-0.639629 -6.4877,-0.68698 -7.51322,-0.156665 -2.12622,1.09951 -13.1604,17.451692 -13.1604,19.503145 0,0.84713 1.22775,3.69746 4.76289,11.05751 6.29716,13.11048 8.39887,17.99844 11.00205,25.58751 3.06833,8.94512 3.34818,9.5357 6.56978,13.86449 4.73889,6.36756 10.34403,12.52535 30.1817,33.15758 16.62369,17.28951 19.06023,19.96645 19.99733,21.97042 0.67161,1.43622 0.80679,3.12164 0.3473,4.33017 -0.5235,1.37692 -4.35862,5.79414 -9.49513,10.93633 -9.20703,9.2172 -18.85753,17.40809 -22.90031,19.43671 -1.58035,0.793 -4.29033,1.0319 -4.89106,0.43117 z"
+         id="path1332"
+         style="fill:url(#radialGradient3534);fill-opacity:1;stroke-width:0.267932" />
+    </g>
+  </g>
+</svg>
