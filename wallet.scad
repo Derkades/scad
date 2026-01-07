@@ -3,20 +3,19 @@ include <BOSL2/std.scad>
 /*
 For best results while still being easy to remove, print with the following support settings in PrusaSlicer:
 Supports: Supports enforcers only
-Style: Snug
-Pattern: Honeycomb
+Style: Organic
 Top interface layers: 0
 Paint-on supports:
   Tool type: smart fill
   Left click on bottom side of overhanging section
 */
 
-
 $fa = 0.5;
 $fs = 0.5;
 
 cards = 4; // <- adjust this
-cash_holder = false;
+cash_holder_v1 = false;
+cash_holder_v2 = true;
 recess = false;
 recess_offset = 10;
 recess_diameter = 20;
@@ -27,7 +26,7 @@ cards_height = cards * card_height;
 wall = 1.6;
 edge = 6;
 rounding = 3;
-bump_r = 0.65;
+bump_r = 0.4;
 bump_offset = 10;
 
 holder_width = cards_width + wall*2;
@@ -54,10 +53,13 @@ difference() {
     }
 }
 
-if (cash_holder) {
-    down(holder_height/2)
-    cuboid([cards_width/2-rounding, cards_length/2-rounding, wall], rounding=rounding, edges=[FRONT+LEFT], anchor=LEFT+FRONT+BOTTOM);
-}
+if (cash_holder_v1)
+down(holder_height/2)
+cuboid([cards_width/2-rounding, cards_length/2-rounding, wall], rounding=rounding, edges=[FRONT+LEFT], anchor=LEFT+FRONT+BOTTOM);
+
+if (cash_holder_v2)
+down(holder_height/2-wall/2)
+cuboid([cards_width-rounding, cards_length/2-rounding, wall/2], anchor=FRONT+TOP, chamfer=wall/2, edges=TOP+FRONT);
 
 // bumps
 for (x = [-cards_width/2, +cards_width/2]) {
