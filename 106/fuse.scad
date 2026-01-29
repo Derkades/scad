@@ -45,9 +45,9 @@ module middle() {
         cuboid([original_fuse_w, 4, height/2], anchor=FRONT);
     }
     
-    circ_w = 36;
+    circ_w = 38;
     circ_d = 20;
-    circ_id = 17.2;
+    circ_id = 17.4;
     circ_h = 10;
     circ_down = -circ_d/2+height/2;
     down(circ_down)
