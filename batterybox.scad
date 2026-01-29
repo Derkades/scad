@@ -21,7 +21,7 @@ module xt60(anchor = CENTER) {
     }
 }
 
-enclosure_part = "lid"; // box, lid, both
+enclosure_part = "box"; // box, lid, both
 enclosure_length = cells_series * cell + 20; // clear screw corners
 enclosure_width = 71;
 enclosure_depth = cells_parallel * cell + 12; // room for BMS
