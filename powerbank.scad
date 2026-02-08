@@ -2,9 +2,8 @@ include <libenclosure.scad>
 
 e = 0.01;
 
-xt60_w = 15.6;
-xt60_h = 8.3;
-xt60_d = 6.5;
+xt60_w = 16; // loose fit
+xt60_h = 8.4; // loose fit
 
 display_w = 45.1;
 display_h = 26.5;
@@ -25,6 +24,19 @@ bat_dim_x = 101.2; // x (includes margin)
 bat_dim_y = 81; // y (includes margin)
 bat_dim_z = 67.1; // z (includes margin)
 bat_support_t = enclosure_thickness;
+
+support_length = enclosure_length - bat_dim_x - bat_support_t;
+
+module xt60(d) {
+    hull() {
+        down(xt60_w/4)
+        cuboid([xt60_h, d, xt60_w/2]);
+
+        up(xt60_w/2 - xt60_h/2)
+        xrot(90)
+        cyl(d=xt60_h, h=d);
+    }
+}
 
 difference() {
     enclosure();
@@ -73,23 +85,21 @@ difference() {
     fwd(pcb_l/2 - 18.2 - 12/2)
     cuboid([enclosure_thickness+0.01, 12.4, 8.4]);
     
+    // text
     translate_side("front")
     fwd(enclosure_thickness/2+e)
     xrot(90)
-    text3d("oplaad ding 190Wh", anchor=TOP, h=0.4, size=8, center=true);
-}
-
-module xt60_support() {
-    difference() {
-        cuboid([xt60_d, xt60_w+2, xt60_h+2]);
-        cuboid([xt60_d+e, xt60_w, xt60_h]);
-    }
+    text3d("18V 190Wh", anchor=TOP, h=0.4, size=8, center=true);
+    
+    // xt60 hole
+    translate_side("front")
+    left(enclosure_length/2 - support_length/2)
+    xt60(enclosure_thickness+0.1);
 }
 
 if (enclosure_part == "box" || enclosure_part == "both") {
     // pcb support
     top_offset = 5; // leave room to insert nut and for wires
-    support_length = enclosure_length - bat_dim_x - bat_support_t;
     translate_side("left")
     difference() {
         for (s = [-1, 1])
@@ -102,6 +112,10 @@ if (enclosure_part == "box" || enclosure_part == "both") {
         up(enclosure_depth/2 - pcb_h/2)
         right(pcb_offset)
         #cuboid([pcb_t+0.2, pcb_l, pcb_h]);
+    
+        fwd(pcb_l/2)
+        right(support_length/2+enclosure_thickness/2)
+        xt60(2*pcb_t+0.01);
     }
     
     // hold battery in place
@@ -118,9 +132,17 @@ if (enclosure_part == "box" || enclosure_part == "both") {
         fwd(s * bat_dim_y/2 + bat_support_t/2)
         cuboid([bat_dim_x, bat_support_t, enclosure_depth/2]);
     }
+    
+    // xt60 support
+    xt60_support_length = (enclosure_width - pcb_l)/2;
+    translate_side("front")
+    left(enclosure_length/2 - support_length/2)
+    back(xt60_support_length/2+enclosure_thickness/2)
+    difference() {
+        cuboid([xt60_h+2, xt60_support_length, xt60_w+2]);
+        xt60(xt60_support_length+0.01);
+    }
 }
-
-// TODO xt60 connector, perfect voor quicko
 
 translate_side("right")
 left(enclosure_thickness/2)
