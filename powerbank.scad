@@ -85,12 +85,6 @@ difference() {
     fwd(pcb_l/2 - 18.2 - 12/2)
     cuboid([enclosure_thickness+0.01, 12.4, 8.6]);
     
-    // text
-    translate_side("front")
-    fwd(enclosure_thickness/2+e)
-    xrot(90)
-    text3d("18V 190Wh", anchor=TOP, h=0.4, size=8, center=true);
-    
     // xt60 hole
     translate_side("front")
     left(enclosure_length/2 - support_length/2)
