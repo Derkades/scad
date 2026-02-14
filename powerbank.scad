@@ -93,7 +93,7 @@ difference() {
 
 if (enclosure_part == "box" || enclosure_part == "both") {
     // pcb support
-    top_offset = 5; // leave room to insert nut and for wires
+    top_offset = 9; // leave room to insert nut, for wires and for the lightning port
     translate_side("left")
     difference() {
         for (s = [-1, 1])
@@ -123,7 +123,7 @@ if (enclosure_part == "box" || enclosure_part == "both") {
         down(enclosure_depth/4)
         left(bat_dim_x/2 + enclosure_thickness/2)
         for (s = [-1, 1])
-        fwd(s * bat_dim_y/2 + bat_support_t/2)
+        fwd(s * (bat_dim_y/2 + bat_support_t/2))
         cuboid([bat_dim_x, bat_support_t, enclosure_depth/2]);
     }
     
