@@ -38,12 +38,10 @@ module xt60_support() {
     }
 }
 
-if (enclosure_part == "box" || enclosure_part == "both") {
-    translate_side("right")
-    left(xt60_d/2)
-    xt60_support();
-    
-    translate_side("left")
-    right(xt60_d/2)
-    xt60_support();
-}
+translate_side("right")
+left(xt60_d/2)
+xt60_support();
+
+translate_side("left")
+right(xt60_d/2)
+xt60_support();

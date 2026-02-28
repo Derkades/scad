@@ -91,51 +91,49 @@ difference() {
     xt60(enclosure_thickness+0.1);
 }
 
-if (enclosure_part == "box" || enclosure_part == "both") {
-    // pcb support
-    top_offset = 9; // leave room to insert nut, for wires and for the lightning port
-    translate_side("left")
-    difference() {
-        for (s = [-1, 1])
-        fwd(s * pcb_l/2)
-        right(support_length/2+enclosure_thickness/2)
-        down(top_offset/2)
-        cuboid([support_length, 2*pcb_t, enclosure_depth-top_offset]);
-        
-        // pcb
-        up(enclosure_depth/2 - (pcb_h+0.2)/2)
-        right(pcb_offset)
-        #cuboid([pcb_t+0.4, pcb_l+0.4, pcb_h+0.2]);
+// pcb support
+top_offset = 9; // leave room to insert nut, for wires and for the lightning port
+translate_side("left")
+difference() {
+    for (s = [-1, 1])
+    fwd(s * pcb_l/2)
+    right(support_length/2+enclosure_thickness/2)
+    down(top_offset/2)
+    cuboid([support_length, 2*pcb_t, enclosure_depth-top_offset]);
     
-        fwd(pcb_l/2)
-        right(support_length/2+enclosure_thickness/2)
-        xt60(2*pcb_t+0.01);
-    }
-    
-    // hold battery in place
-    translate_side("right") {
-        // near pcb
-        down(top_offset/2)
-        left(bat_dim_x + enclosure_thickness/2 + bat_support_t/2)
-        cuboid([bat_support_t, enclosure_width, enclosure_depth-top_offset]);
-    
-        // other two sides
-        down(enclosure_depth/4)
-        left(bat_dim_x/2 + enclosure_thickness/2)
-        for (s = [-1, 1])
-        fwd(s * (bat_dim_y/2 + bat_support_t/2))
-        cuboid([bat_dim_x, bat_support_t, enclosure_depth/2]);
-    }
-    
-    // xt60 support
-    xt60_support_length = (enclosure_width - pcb_l)/2;
-    translate_side("front")
-    left(enclosure_length/2 - support_length/2)
-    back(xt60_support_length/2+enclosure_thickness/2)
-    difference() {
-        cuboid([xt60_h+2, xt60_support_length, xt60_w+2]);
-        xt60(xt60_support_length+0.01);
-    }
+    // pcb
+    up(enclosure_depth/2 - (pcb_h+0.2)/2)
+    right(pcb_offset)
+    #cuboid([pcb_t+0.4, pcb_l+0.4, pcb_h+0.2]);
+
+    fwd(pcb_l/2)
+    right(support_length/2+enclosure_thickness/2)
+    xt60(2*pcb_t+0.01);
+}
+
+// hold battery in place
+translate_side("right") {
+    // near pcb
+    down(top_offset/2)
+    left(bat_dim_x + enclosure_thickness/2 + bat_support_t/2)
+    cuboid([bat_support_t, enclosure_width, enclosure_depth-top_offset]);
+
+    // other two sides
+    down(enclosure_depth/4)
+    left(bat_dim_x/2 + enclosure_thickness/2)
+    for (s = [-1, 1])
+    fwd(s * (bat_dim_y/2 + bat_support_t/2))
+    cuboid([bat_dim_x, bat_support_t, enclosure_depth/2]);
+}
+
+// xt60 support
+xt60_support_length = (enclosure_width - pcb_l)/2;
+translate_side("front")
+left(enclosure_length/2 - support_length/2)
+back(xt60_support_length/2+enclosure_thickness/2)
+difference() {
+    cuboid([xt60_h+2, xt60_support_length, xt60_w+2]);
+    xt60(xt60_support_length+0.01);
 }
 
 translate_side("right")

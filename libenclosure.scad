@@ -156,16 +156,24 @@ module box(in_x, in_y, in_z, shell, top_lip, top_thickness) {
 module translate_side(side) {
     up(enclosure_depth/2 + enclosure_thickness)  // center vertically
     if (side == "right") {
+        if (enclosure_part == "box" || enclosure_part == "both")
         right(enclosure_length/2+enclosure_thickness/2)
         children();
     } else if (side == "left") {
+        if (enclosure_part == "box" || enclosure_part == "both")
         left(enclosure_length/2+enclosure_thickness/2)
         children();
     } else if (side == "lid") {
+        if (enclosure_part == "lid" || enclosure_part == "both")
         up(enclosure_depth/2+enclosure_thickness/2)
         children();
     } else if (side == "front") {
+        if (enclosure_part == "box" || enclosure_part == "both")
         fwd(enclosure_width/2+enclosure_thickness/2)
+        children();
+    } else if (side == "bottom") {
+        if (enclosure_part == "box" || enclosure_part == "both")
+        down(enclosure_depth/2+enclosure_thickness/2)
         children();
     }
 }
