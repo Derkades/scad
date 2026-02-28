@@ -3,10 +3,9 @@ include <BOSL2/std.scad>
 $fa = 0.5;
 $fs = 0.5;
 
-module din_clamp(height, width) {
+module din_clamp(height, width, thickness=3) {
     din_height = 35; // Slop provided by spring
     din_thickness = 1.2;
-    thickness = 3;
     flex_thickness = 1.5;
     
     cuboid([height, thickness, width], anchor=FRONT);
