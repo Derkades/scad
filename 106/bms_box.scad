@@ -2,8 +2,8 @@ include <../libenclosure.scad>
 include <BOSL2/screws.scad>
 use <../din_clamp.scad>
 
-enclosure_part = "lid"; // box, lid, both
-enclosure_length = 84;
+enclosure_part = "box"; // box, lid, both
+enclosure_length = 95;
 enclosure_width = 58;
 enclosure_depth = 35;
 enclosure_thickness = 2;
@@ -14,7 +14,12 @@ din_clamp_height = enclosure_width + enclosure_thickness*2 - din_clamp_fwd*2 + 1
 din_clamp_width = enclosure_length/2;
 din_clamp_thickness = 3;
 
-module gx16_4() {
+bms_x_dist = 62;
+bms_y_dist = 48.5;
+bms_x_offset = -(enclosure_length - 82.6) / 2;
+bms_screw_height = 5;
+
+module gx16() {
     cyl(h=enclosure_thickness+0.1, d=15.3);
     
     for (a = [0, 120, 240])
@@ -31,6 +36,12 @@ difference() {
         din_clamp(din_clamp_height, din_clamp_width, din_clamp_thickness);
     } else {
         enclosure();
+        
+        translate_side("bottom")
+        for (x = [-bms_x_dist/2+bms_x_offset, bms_x_dist/2+bms_x_offset])
+        for (y = [-bms_y_dist/2, bms_y_dist/2])
+        translate([x, y, enclosure_thickness/2])
+        cyl(d=8, h=bms_screw_height, anchor=BOTTOM);
     }
     
     // CAN connectors
@@ -39,11 +50,11 @@ difference() {
     right(x * enclosure_length/4)
     gx16_4();
     
-    // Power connector
+    // Power and signals connector
     translate_side("right")
     zrot(90)
     xrot(90)
-    gx16_4();
+    gx16();
         
     // status led
     translate_side("lid")
@@ -63,12 +74,13 @@ difference() {
     }
     
     // screw holes for ZEVA BMS
-    bms_x_dist = 62;
-    bms_y_dist = 48.5;
     translate_side("bottom")
-    for (x = [-bms_x_dist/2, bms_x_dist/2])
+    for (x = [-bms_x_dist/2+bms_x_offset, bms_x_dist/2+bms_x_offset])
     for (y = [-bms_y_dist/2, bms_y_dist/2])
-    translate([x, y, 0])
-    zflip()
-    screw_hole("M3", head="flat", length=enclosure_thickness+0.01);
+    translate([x, y, 0]) {
+        up(enclosure_thickness/2 + bms_screw_height/2)
+        screw_hole("M3", length=bms_screw_height);
+        
+        nut_trap_inline(enclosure_thickness+0.01, "M3", anchor=CENTER);
+    }
 }
