@@ -14,11 +14,11 @@ $fs = 0.5;
 
 module enclosure() {
 	if (enclosure_part == "box" || enclosure_part == "both") {
-		box(enclosure_length, enclosure_width, enclosure_depth, enclosure_thickness, enclosure_thickness/2-0.10, enclosure_thickness);
+		box(enclosure_length, enclosure_width, enclosure_depth, enclosure_thickness);
 	}
     
     if (enclosure_part == "lid" || enclosure_part == "both") {
-		lid(enclosure_length, enclosure_width, enclosure_depth, enclosure_thickness, enclosure_thickness/2+0.10, enclosure_thickness);
+		lid(enclosure_length, enclosure_width, enclosure_depth, enclosure_thickness);
 	}
 }
 
@@ -46,103 +46,48 @@ module screws(in_x, in_y, in_z, shell) {
 }
 
 module bottom(in_x, in_y, in_z, shell) {
-	hull() {
-   	 	translate([-in_x/2+shell, -in_y/2+shell, 0]) cylinder(r=shell*2,h=shell);
-		translate([+in_x/2-shell, -in_y/2+shell, 0]) cylinder(r=shell*2,h=shell);
-		translate([+in_x/2-shell, in_y/2-shell, 0]) cylinder(r=shell*2,h=shell);
-		translate([-in_x/2+shell, in_y/2-shell, 0]) cylinder(r=shell*2,h=shell);
-	}
+    cuboid([in_x+2*shell, in_y+2*shell, shell], rounding=shell*2, edges="Z", anchor=BOTTOM);
 }
 
 module sides(in_x, in_y, in_z, shell) {
-	translate([0,0,shell])
-	difference() {
-		hull() {
-	   	 	translate([-in_x/2+shell, -in_y/2+shell, 0]) cylinder(r=shell*2,h=in_z);
-			translate([+in_x/2-shell, -in_y/2+shell, 0]) cylinder(r=shell*2,h=in_z);
-			translate([+in_x/2-shell, in_y/2-shell, 0]) cylinder(r=shell*2,h=in_z);
-			translate([-in_x/2+shell, in_y/2-shell, 0]) cylinder(r=shell*2,h=in_z);
-		}
-	
-		hull() {
-	   	 	translate([-in_x/2+shell, -in_y/2+shell, 0]) cylinder(r=shell,h=in_z+1);
-			translate([+in_x/2-shell, -in_y/2+shell, 0]) cylinder(r=shell,h=in_z+1);
-			translate([+in_x/2-shell, in_y/2-shell, 0]) cylinder(r=shell,h=in_z+1);
-			translate([-in_x/2+shell, in_y/2-shell, 0]) cylinder(r=shell,h=in_z+1);
-		}
-	}
+    up(shell)
+    rect_tube(in_z, [in_x+2*shell, in_y+2*shell], [in_x, in_y], rounding=shell*2, anchor=BOTTOM);
 	
 	intersection() {
 		translate([-in_x/2, -in_y/2, shell]) cube([in_x, in_y, in_z+2]);
 		union() {
-			translate([-in_x/2 , -in_y/2,shell + in_z -6]) cylinder(r=9, h = 6);
-			translate([-in_x/2 , -in_y/2,shell + in_z -10]) cylinder(r1=3, r2=9, h = 4);
-		
-			translate([in_x/2 , -in_y/2, shell + in_z -6]) cylinder(r=9, h = 6);
-			translate([in_x/2 , -in_y/2, shell + in_z -10]) cylinder(r1=3, r2=9, h = 4);
-		
-			translate([in_x/2 , in_y/2,  shell + in_z -6]) cylinder(r=9, h = 6);
-			translate([in_x/2 , in_y/2,  shell + in_z -10]) cylinder(r1=3, r2=9, h = 4);
-		
-			translate([-in_x/2 , in_y/2, shell + in_z -6]) cylinder(r=9, h = 6);
-			translate([-in_x/2 , in_y/2, shell + in_z -10]) cylinder(r1=3, r2=9, h = 4);
+            for (x = [-in_x/2, in_x/2])
+            for (y = [-in_y/2, in_y/2])
+            translate([x, y, in_z-shell/2]) {
+                cyl(r=9, h=6);
+                
+                down(6/2+4/2)
+                cyl(r1=3, r2=9, h=4);
+            }
 		}
 	}
 }
 
-module lid_top_lip2(in_x, in_y, in_z, shell, top_lip, top_thickness) {
-
-	cxm = -in_x/2 - (shell-top_lip);
-	cxp = in_x/2 + (shell-top_lip);
-	cym = -in_y/2 - (shell-top_lip);
-	cyp = in_y/2 + (shell-top_lip);
-
-	translate([0,0,shell+in_z])
-
-	difference() {
-		hull() {
-	   	 	translate([-in_x/2+shell, -in_y/2+shell, 0]) cylinder(r=shell*2,h=top_thickness);
-			translate([+in_x/2-shell, -in_y/2+shell, 0]) cylinder(r=shell*2,h=top_thickness);
-			translate([+in_x/2-shell, in_y/2-shell, 0]) cylinder(r=shell*2,h=top_thickness);
-			translate([-in_x/2+shell, in_y/2-shell, 0]) cylinder(r=shell*2,h=top_thickness);
-		}		
+module lid_top_lip(in_x, in_y, in_z, t) {
+    difference() {
+        up(in_z+t)
+        bottom(in_x, in_y, in_z, t);
         
-		translate([0, 0, -1]) linear_extrude(height = top_thickness + 2) polygon(points = [
-			[cxm+5, cym],
-			[cxm, cym+5],
-			[cxm, cyp-5],
-			[cxm+5, cyp],
-			[cxp-5, cyp],
-			[cxp, cyp-5],
-			[cxp, cym+5],
-			[cxp-5, cym]]);
-	}
+        up(in_z+t-0.01)
+        cuboid([in_x+t+0.1, in_y+t+0.1, t+0.02], chamfer=t*2, edges="Z", anchor=BOTTOM);
+    }
 }
 
-module lid(in_x, in_y, in_z, shell, top_lip, top_thickness) {
-	cxm = -in_x/2 - (shell-top_lip);
-	cxp = in_x/2 + (shell-top_lip);
-	cym = -in_y/2 - (shell-top_lip);
-	cyp = in_y/2 + (shell-top_lip);	
-
-	difference() {
-		translate([0, 0, in_z+shell]) 
-        linear_extrude(height = top_thickness ) 
-        polygon(points = [
-			[cxm+5, cym],
-			[cxm, cym+5],
-			[cxm, cyp-5],
-			[cxm+5, cyp],
-			[cxp-5, cyp],
-			[cxp, cyp-5],
-			[cxp, cym+5],
-			[cxp-5, cym]]);
-	
-		screws(in_x, in_y, in_z, shell);
-	}
+module lid(in_x, in_y, in_z, t) {
+    difference() {
+        up(in_z+t)
+        cuboid([in_x+t-0.1, in_y+t-0.1, t], chamfer=t*2, edges="Z", anchor=BOTTOM);
+        
+        screws(in_x, in_y, in_z, t);  
+    }
 }
 
-module box(in_x, in_y, in_z, shell, top_lip, top_thickness) {
+module box(in_x, in_y, in_z, shell) {
     difference() {
         union() {
             bottom(in_x, in_y, in_z, shell);
@@ -150,7 +95,7 @@ module box(in_x, in_y, in_z, shell, top_lip, top_thickness) {
         }
 		screws(in_x, in_y, in_z, shell);
 	}
-	lid_top_lip2(in_x, in_y, in_z, shell, top_lip, top_thickness);
+	lid_top_lip(in_x, in_y, in_z, shell);
 }
 
 module translate_side(side) {
