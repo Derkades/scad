@@ -2,7 +2,7 @@ include <../libenclosure.scad>
 include <BOSL2/screws.scad>
 use <../din_clamp.scad>
 
-enclosure_part = "box"; // box, lid, both
+enclosure_part = "lid"; // box, lid, both
 enclosure_length = 95;
 enclosure_width = 58;
 enclosure_depth = 35;
@@ -48,7 +48,7 @@ difference() {
     translate_side("lid")
     for (x = [-1, 1])
     right(x * enclosure_length/4)
-    gx16_4();
+    gx16();
     
     // Power and signals connector
     translate_side("right")
