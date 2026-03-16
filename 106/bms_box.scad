@@ -2,16 +2,17 @@ include <../libenclosure.scad>
 include <BOSL2/screws.scad>
 use <../din_clamp.scad>
 
-enclosure_part = "lid"; // box, lid, both
+enclosure_part = "box"; // box, lid, both
 enclosure_length = 95;
 enclosure_width = 58;
 enclosure_depth = 35;
 enclosure_thickness = 2;
 
-render_din = false; // set enclosure_part to an invalid value to only render din
+render_din = true; // set enclosure_part to an invalid value to only render din
 din_clamp_fwd = 5;
 din_clamp_height = enclosure_width + enclosure_thickness*2 - din_clamp_fwd*2 + 1;
-din_clamp_width = enclosure_length/2;
+din_screw_dist = enclosure_length/8;
+din_clamp_width = din_screw_dist*2 + enclosure_width/4;
 din_clamp_thickness = 3;
 
 bms_x_dist = 62;
@@ -65,7 +66,7 @@ difference() {
     translate_side("bottom")
     for (x = [-1, 1])
     for (y = [-1, 1])
-    translate([x*din_clamp_width/4, y*enclosure_width/4, 0]) {
+    translate([x*din_screw_dist, y*enclosure_width/4, 0]) {
         down(din_clamp_thickness + enclosure_thickness/2)
         zflip()
         screw_hole("M3", length=20, head="flat", anchor=TOP);
