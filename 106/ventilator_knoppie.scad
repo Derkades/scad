@@ -6,7 +6,7 @@ $fs = 1;
 
 cuboid([6.5, 15, 4], rounding=3, edges="Z", anchor=BOTTOM);
 difference() {
-    cuboid([2.1, 9.6, 8], chamfer=0.5, edges="Z", anchor=TOP);
+    cuboid([1.9, 9.4, 8], chamfer=0.5, edges=[BOTTOM, "Z"], anchor=TOP);
     down(2)
-    cuboid([2.1, 2.3, 6], anchor=TOP); 
+    cuboid([1.9, 2.5, 6], chamfer=-0.5, edges=BOTTOM, anchor=TOP); 
 }
