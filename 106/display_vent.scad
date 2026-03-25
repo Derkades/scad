@@ -61,5 +61,5 @@ difference() {
     // pcb
     down(t)
     left_half()
-    cuboid([95, 53, pcb_t], anchor=TOP);   
+    cuboid([96, 53, pcb_t], anchor=TOP);   
 }
