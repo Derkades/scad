@@ -47,6 +47,13 @@ rect_tube(size=[93.5, 59.8], wall=t, h=35, rounding=6) {
     position(BOTTOM)
     translate_screw_holes()
     cyl(d1=10, d2=3, h=20, anchor=BOTTOM);
+    
+    // allow pressing can cable clip with a screw driver to release it
+    up(3)
+    tag("remove")
+    position(BOTTOM+BACK)
+    back(0.01)
+    cuboid([8, t+0.02, 10], anchor=BACK+BOTTOM, chamfer=2, edges="Y");
 }
 
 difference() {
