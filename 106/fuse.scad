@@ -8,7 +8,10 @@ t = 2;
 w_bottom = 82.7;
 height = 25;
 
-original_fuse_support = true;
+inner_support = true;
+inner_support_x = 36.2;
+inner_support_y = 16.4;
+inner_support_z = 7;
 
 module main_shape(h) {
     hull() {
@@ -34,15 +37,16 @@ module middle() {
         cuboid([18.5, t+0.01, 9.4], rounding=1, edges="Y");
     }
     
-    down(height/4)
-    if (original_fuse_support) {
-        original_fuse_w = 47.8;
-        for (x = [-original_fuse_w/2-t/2, original_fuse_w/2+t/2])
-        right(x)
-        cuboid([t, 45, height/2], anchor=FRONT);
+    back(t)
+    down(height/2)
+    if (inner_support) {
+        xcopies(inner_support_x+t, 2)
+        cuboid([t, inner_support_y, height/2], anchor=FRONT+BOTTOM);
         
-        back(40+t)
-        cuboid([original_fuse_w, 4, height/2], anchor=FRONT);
+        back(inner_support_y)
+        cuboid([inner_support_x+t*2, t, height/2], anchor=FRONT+BOTTOM);
+        
+        cuboid([inner_support_x/2, inner_support_y, inner_support_z], anchor=FRONT+BOTTOM);
     }
     
     circ_w = 38;
@@ -71,14 +75,16 @@ module middle() {
     
     // clips
     down(circ_down) {
-        left(w_bottom/2-1/2)
-        cuboid([1, 15, 12], anchor=BACK) {
+        clip_t = 1.6;
+        
+        left(w_bottom/2 - clip_t/2)
+        cuboid([clip_t, 15, 12], anchor=BACK) {
             position(RIGHT+FRONT)
             cuboid([1, 4, 12], anchor=FRONT+LEFT, chamfer=1, edges=[BACK+RIGHT, FRONT+RIGHT]);
         }
         
-        right(w_bottom/2-1/2)
-        cuboid([1, 15, 12], anchor=BACK) {
+        right(w_bottom/2 - clip_t/2)
+        cuboid([clip_t, 15, 12], anchor=BACK) {
             position(LEFT+FRONT)
             cuboid([1, 4, 12], anchor=FRONT+RIGHT, chamfer=1, edges=[BACK+LEFT, FRONT+LEFT]);
         }
