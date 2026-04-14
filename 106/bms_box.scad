@@ -8,11 +8,11 @@ enclosure_width = 58;
 enclosure_depth = 35;
 enclosure_thickness = 2;
 
-render_din = true; // set enclosure_part to an invalid value to only render din
+render_din = false;
 din_clamp_fwd = 5;
 din_clamp_height = enclosure_width + enclosure_thickness*2 - din_clamp_fwd*2 + 1;
-din_screw_dist = enclosure_length/8;
-din_clamp_width = din_screw_dist*2 + enclosure_width/4;
+din_screw_dist = enclosure_length/4;
+din_clamp_width = din_screw_dist + enclosure_width/4;
 din_clamp_thickness = 3;
 
 bms_x_dist = 62;
@@ -39,16 +39,16 @@ difference() {
         enclosure();
         
         translate_side("bottom")
-        for (x = [-bms_x_dist/2+bms_x_offset, bms_x_dist/2+bms_x_offset])
-        for (y = [-bms_y_dist/2, bms_y_dist/2])
-        translate([x, y, enclosure_thickness/2])
+        up(enclosure_thickness/2)
+        right(bms_x_offset)
+        xcopies(bms_x_dist)
+        ycopies(bms_y_dist)
         cyl(d=8, h=bms_screw_height, anchor=BOTTOM);
     }
     
     // CAN connectors
     translate_side("lid")
-    for (x = [-1, 1])
-    right(x * enclosure_length/4)
+    xcopies(enclosure_length/2)
     gx16();
     
     // Power and signals connector
@@ -64,9 +64,8 @@ difference() {
     
     // screw holes to fix box to din rail clamp
     translate_side("bottom")
-    for (x = [-1, 1])
-    for (y = [-1, 1])
-    translate([x*din_screw_dist, y*enclosure_width/4, 0]) {
+    xcopies(din_screw_dist)
+    ycopies(enclosure_width/2) {
         down(din_clamp_thickness + enclosure_thickness/2)
         zflip()
         screw_hole("M3", length=20, head="flat", anchor=TOP);
@@ -76,9 +75,9 @@ difference() {
     
     // screw holes for ZEVA BMS
     translate_side("bottom")
-    for (x = [-bms_x_dist/2+bms_x_offset, bms_x_dist/2+bms_x_offset])
-    for (y = [-bms_y_dist/2, bms_y_dist/2])
-    translate([x, y, 0]) {
+    right(bms_x_offset)
+    xcopies(bms_x_dist)
+    ycopies(bms_y_dist) {
         up(enclosure_thickness/2 + bms_screw_height/2)
         screw_hole("M3", length=bms_screw_height);
         
