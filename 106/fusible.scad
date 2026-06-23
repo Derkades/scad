@@ -13,6 +13,8 @@ inner_support_x = 36.2;
 inner_support_y = 16.4;
 inner_support_z = 7;
 
+cover = true; // set to true to only print top cover, to be glued on top of the case
+
 module main_shape(h) {
     hull() {
         cuboid([w_bottom, t, h], anchor=FRONT);
@@ -91,7 +93,12 @@ module middle() {
     }
 }
 
-down(height/2-t/2)
-main_shape(t);
 
-middle();
+if (cover) {
+    main_shape(t);
+} else {
+    down(height/2-t/2)
+    main_shape(t); // bottom
+    
+    middle();
+}
