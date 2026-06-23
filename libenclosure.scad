@@ -54,7 +54,9 @@ module sides(in_x, in_y, in_z, shell) {
     rect_tube(in_z, [in_x+2*shell, in_y+2*shell], [in_x, in_y], rounding=shell*2, anchor=BOTTOM);
 	
 	intersection() {
-		translate([-in_x/2, -in_y/2, shell]) cube([in_x, in_y, in_z+2]);
+		translate([-in_x/2, -in_y/2, shell])
+        cube([in_x, in_y, in_z]);
+    
 		union() {
             for (x = [-in_x/2, in_x/2])
             for (y = [-in_y/2, in_y/2])
