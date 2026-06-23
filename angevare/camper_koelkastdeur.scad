@@ -7,17 +7,13 @@ $fs = 0.5;
 
 difference() {
     union() {
-        hull() {
-            cuboid([30, 10, 5], anchor=TOP+LEFT);
-            cyl(r=5, h=5, anchor=TOP+RIGHT);
-        }
+        left(5)
+        cuboid([35, 10, 5], anchor=TOP+LEFT, rounding=5, edges="Z");
+        cyl(r=5, h=5, anchor=TOP);
 
-        cyl(r=5, h=33, anchor=BOTTOM+RIGHT);
+        down(5)
+        cyl(r=5, h=33, anchor=TOP);
     }
-
-    left(2.5)
-    cyl(r=2.5, h=100, anchor=RIGHT);
-
-    left(5)
-    cyl(r1=4, r2=0, h=5, anchor=RIGHT+TOP);
+    
+    screw_hole("M4", head="flat", length=33+5, anchor=TOP);
 }
