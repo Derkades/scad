@@ -25,8 +25,8 @@ difference() {
         cube([mount_length, mount_thick, mount_height]);
     }
     
-    translate([wall, wall, 0])
-    roundedcube([length, width, height], rounding, true);
+    translate([wall, wall, -.01])
+    roundedcube([length, width, height+.02], rounding, true);
     
     translate([(outer_length-mount_length)/2, -mount_thick+wall, -mount_height+height]) {
         for (x = [mount_length * (1/4), mount_length * (3/4)]) {
